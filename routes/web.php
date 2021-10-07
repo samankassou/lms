@@ -9,6 +9,7 @@ use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Manager\Leave;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,3 +54,7 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
     Route::get('dashboard', Dashboard::class)->name('dashboard');
 });
+Route::get('leave', Leave::class)
+->name('leave.index')
+->middleware(['auth'])
+->prefix('manager');
